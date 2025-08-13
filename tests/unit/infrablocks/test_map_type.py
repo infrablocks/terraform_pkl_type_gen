@@ -27,13 +27,25 @@ class TestTerraformPklTypeMapping:
         assert map_type("list of bool") == "Listing<Boolean> | List<Boolean>"
 
     def test_map_of_dynamic_type_mapping(self):
-        assert map_type("map of dynamic") == "Mapping<String, Any> | Map<String, Any>"
+        assert (
+            map_type("map of dynamic")
+            == "Mapping<String, Any> | Map<String, Any>"
+        )
 
     def test_map_of_string_type_mapping(self):
-        assert map_type("map of string") == "Mapping<String, String> | Map<String, String>"
+        assert (
+            map_type("map of string")
+            == "Mapping<String, String> | Map<String, String>"
+        )
 
     def test_map_of_number_type_mapping(self):
-        assert map_type("map of number") == "Mapping<String, Number> | Map<String, Number>"
+        assert (
+            map_type("map of number")
+            == "Mapping<String, Number> | Map<String, Number>"
+        )
 
     def test_map_of_bool_type_mapping(self):
-        assert map_type("map of bool") == "Mapping<String, Boolean> | Map<String, Boolean>"
+        assert (
+            map_type("map of bool")
+            == "Mapping<String, Boolean> | Map<String, Boolean>"
+        )
