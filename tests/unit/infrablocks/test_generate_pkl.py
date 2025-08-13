@@ -53,40 +53,40 @@ class TestGeneratePklType:
         assert has_attribute_of_name(
             lines=basic_example,
             name="list_of_strings",
-            with_type="Listing<String>",
+            with_type="Listing<String> | List<String>",
         )
 
     def test_generated_class_has_list_of_number_member(self):
         assert has_attribute_of_name(
             lines=basic_example,
             name="list_of_numbers",
-            with_type="Listing<Number>",
+            with_type="Listing<Number> | List<Number>",
         )
 
     def test_generated_class_has_list_of_bool_member(self):
         assert has_attribute_of_name(
             lines=basic_example,
             name="list_of_booleans",
-            with_type="Listing<Boolean>",
+            with_type="Listing<Boolean> | List<Boolean>",
         )
 
     def test_generated_class_has_map_of_string_member(self):
         assert has_attribute_of_name(
             lines=basic_example,
             name="map_of_strings",
-            with_type="Mapping<String, String>",
+            with_type="Mapping<String, String> | Map<String, String>",
         )
 
     def test_generated_class_has_map_of_number_member(self):
         assert has_attribute_of_name(
             lines=basic_example,
             name="map_of_numbers",
-            with_type="Mapping<String, Number>",
+            with_type="Mapping<String, Number> | Map<String, Number>",
         )
 
     def test_generated_class_has_map_of_bool_member(self):
         assert has_attribute_of_name(
             lines=basic_example,
             name="map_of_booleans",
-            with_type="Mapping<String, Boolean>",
+            with_type="Mapping<String, Boolean> | Map<String, Boolean>",
         )
