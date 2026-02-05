@@ -13,9 +13,11 @@ class TFMeta(tp.TypedDict):
     label: str
     filename: str
 
-class VariableMeta(tp.TypedDict):
-    __tfmeta: TFMeta
-    type: str
+class VariableMeta(tp.TypedDict, total=False):
+    __tfmeta: tp.Required[TFMeta]
+    type: tp.Required[str]
+    nullable: bool
+    default: tp.Any
 
 class Parsed(tp.TypedDict):
     variable: tp.List[VariableMeta]

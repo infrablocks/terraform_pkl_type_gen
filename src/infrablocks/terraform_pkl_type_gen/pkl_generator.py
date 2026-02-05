@@ -1,6 +1,6 @@
 from typing import Dict, List
 
-from tfparse import load_from_path
+from tfparse import VariableMeta, load_from_path
 
 type_mapping: Dict[str, str] = {
     "string": "String",
@@ -25,7 +25,7 @@ def map_type(terraform_type: str) -> str:
     return type_mapping[terraform_type]
 
 
-def _is_nullable(variable: dict) -> bool:
+def _is_nullable(variable: VariableMeta) -> bool:
     if variable.get("nullable"):
         return True
 
