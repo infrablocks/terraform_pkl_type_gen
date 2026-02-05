@@ -5,7 +5,22 @@ on:
       - main
 
 jobs:
+  skip-ci-check:
+    runs-on: ubuntu-latest
+    outputs:
+      should_skip_ci: ${{ steps.skip_ci_check.outputs.should_skip_ci }}
+    steps:
+      - id: skip_ci_check
+        run: |
+          if [[ "${{ github.event.head_commit.message }}" == *"[no ci]"* ]] || [[ "${{ github.event.head_commit.message }}" == *"[skip ci]"* ]]; then
+            echo "should_skip_ci=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_skip_ci=false" >> $GITHUB_OUTPUT
+          fi
+
   check:
+    needs: skip-ci-check
+    if: needs.skip-ci-check.outputs.should_skip_ci != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -14,6 +29,8 @@ jobs:
       - name: Test
         run: ./go library:check
   test:
+    needs: skip-ci-check
+    if: needs.skip-ci-check.outputs.should_skip_ci != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -22,6 +39,8 @@ jobs:
       - name: Test
         run: ./go library:test:all
   build:
+    needs: skip-ci-check
+    if: needs.skip-ci-check.outputs.should_skip_ci != 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
