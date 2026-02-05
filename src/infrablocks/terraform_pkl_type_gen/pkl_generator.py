@@ -1,6 +1,19 @@
-from typing import Dict, List
+from typing import Any, Dict, List, Required, TypedDict
 
-from tfparse import VariableMeta, load_from_path
+from tfparse import load_from_path
+
+
+class TFMeta(TypedDict):
+    label: str
+    filename: str
+
+
+class VariableMeta(TypedDict, total=False):
+    __tfmeta: Required[TFMeta]
+    type: Required[str]
+    nullable: bool
+    default: Any
+
 
 type_mapping: Dict[str, str] = {
     "string": "String",
