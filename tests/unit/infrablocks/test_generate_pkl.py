@@ -97,3 +97,17 @@ class TestGeneratePklType:
             name="object_of_things",
             with_type="Mapping<String, Any> | Map<String, Any>",
         )
+
+    def test_generated_class_has_list_of_object_of_things_member(self):
+        assert has_attribute_of_name(
+            lines=basic_example,
+            name="list_of_object_of_things",
+            with_type="Listing<Mapping<String, Any> | Map<String, Any>> | List<Mapping<String, Any> | Map<String, Any>>",
+        )
+
+    def test_generated_class_has_map_of_object_of_things_member(self):
+        assert has_attribute_of_name(
+            lines=basic_example,
+            name="map_of_object_of_things",
+            with_type="Mapping<String, Mapping<String, Any> | Map<String, Any>> | Map<String, Mapping<String, Any> | Map<String, Any>>",
+        )

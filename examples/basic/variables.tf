@@ -53,3 +53,19 @@ variable "object_of_things" {
     enabled = bool
   })
 }
+
+variable "list_of_object_of_things" {
+  type = list(object({
+    name    = string
+    count   = number
+    enabled = bool
+  }))
+}
+
+variable "map_of_object_of_things" {
+  type = map(object({
+    name    = string
+    count   = number
+    enabled = bool
+  }))
+}

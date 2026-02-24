@@ -29,6 +29,8 @@ type_mapping: Dict[str, str] = {
     "map of number": "Mapping<String, Number> | Map<String, Number>",
     "map of bool": "Mapping<String, Boolean> | Map<String, Boolean>",
     "object": "Mapping<String, Any> | Map<String, Any>",
+    "list of object": "Listing<Mapping<String, Any> | Map<String, Any>> | List<Mapping<String, Any> | Map<String, Any>>",
+    "map of object": "Mapping<String, Mapping<String, Any> | Map<String, Any>> | Map<String, Mapping<String, Any> | Map<String, Any>>",
 }
 
 indent = "  "
