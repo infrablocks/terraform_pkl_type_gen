@@ -49,3 +49,18 @@ class TestTerraformPklTypeMapping:
             map_type("map of bool")
             == "Mapping<String, Boolean> | Map<String, Boolean>"
         )
+
+    def test_object_type_mapping(self):
+        assert map_type("object") == "Mapping<String, Any> | Map<String, Any>"
+
+    def test_list_of_object_type_mapping(self):
+        assert (
+            map_type("list of object")
+            == "Listing<Mapping<String, Any> | Map<String, Any>> | List<Mapping<String, Any> | Map<String, Any>>"
+        )
+
+    def test_map_of_object_type_mapping(self):
+        assert (
+            map_type("map of object")
+            == "Mapping<String, Mapping<String, Any> | Map<String, Any>> | Map<String, Mapping<String, Any> | Map<String, Any>>"
+        )
