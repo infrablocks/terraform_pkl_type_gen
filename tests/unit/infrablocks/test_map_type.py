@@ -49,3 +49,6 @@ class TestTerraformPklTypeMapping:
             map_type("map of bool")
             == "Mapping<String, Boolean> | Map<String, Boolean>"
         )
+
+    def test_object_type_mapping(self):
+        assert map_type("object") == "Mapping<String, Any> | Map<String, Any>"
