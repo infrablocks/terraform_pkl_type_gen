@@ -6,6 +6,7 @@ from tfparse import load_from_path
 class TFMeta(TypedDict):
     label: str
     filename: str
+    path: str
 
 
 class VariableMeta(TypedDict, total=False):
@@ -57,6 +58,7 @@ def generate_pkl_type(chdir: str, type_name: str) -> str:
         variable
         for variable in parsed["variable"]
         if variable["__tfmeta"]["filename"] == "variables.tf"
+        and variable["__tfmeta"]["path"].startswith("variable.")
     ]
     output: List[str] = []
 
