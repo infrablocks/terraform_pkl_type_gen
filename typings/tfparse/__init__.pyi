@@ -12,6 +12,7 @@ from tfparse._tfparse import ffi
 class TFMeta(tp.TypedDict):
     label: str
     filename: str
+    path: str
 
 class VariableMeta(tp.TypedDict, total=False):
     __tfmeta: tp.Required[TFMeta]

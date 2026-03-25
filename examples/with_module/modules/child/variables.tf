@@ -1,0 +1,2 @@
+variable "sub_variable" {
+}
