@@ -14,8 +14,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = ">=3.13,<4.0"
-invoke = "^2.2.0"
-tfparse = "^0.6.16"
+invoke = ">=2.2.0"
+tfparse = ">=0.6.16"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.6.10"
