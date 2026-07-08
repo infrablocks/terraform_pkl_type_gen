@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install tools
-        uses: ./.github/actions/asdf_install
+        uses: infrablocks/github-actions/asdf_install@v1
       - name: Test
         run: ./go library:check
   test:
@@ -35,7 +35,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install tools
-        uses: ./.github/actions/asdf_install
+        uses: infrablocks/github-actions/asdf_install@v1
       - name: Test
         run: ./go library:test:all
   build:
@@ -45,7 +45,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install tools
-        uses: ./.github/actions/asdf_install
+        uses: infrablocks/github-actions/asdf_install@v1
       - name: Test
         run: ./go library:build
 
@@ -55,7 +55,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install tools
-        uses: ./.github/actions/asdf_install
+        uses: infrablocks/github-actions/asdf_install@v1
       - name: Authenticate with PyPi
         run: ./go poetry:login_to_pypi[${{ secrets.PYPI_API_KEY }}]
       - name: Publish
@@ -76,7 +76,7 @@ jobs:
         with:
           ref: 'main'
       - name: Install tools
-        uses: ./.github/actions/asdf_install
+        uses: infrablocks/github-actions/asdf_install@v1
       - name: Authenticate with PyPi
         run: ./go poetry:login_to_pypi[${{ secrets.PYPI_API_KEY }}]
       - name: Publish
